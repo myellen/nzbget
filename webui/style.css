@@ -3560,6 +3560,145 @@ input[type="date"] {
 }
 /* END: MEDIA SMALL SCREENS */
 
+/* BEGIN: TOUCH SCREENS */
+/*
+ * Touch screens wider than the phone layout (tablets, the inner screen of
+ * foldable phones) get the desktop layout, which is sized for a mouse.
+ * When the primary pointer is a finger, give its controls the tap sizes the
+ * phone layout already uses (about 34 to 38px), and 16px text in form fields
+ * so that iOS Safari does not zoom in when a field gets focus.
+ * Where a larger control would change the layout, only its tap area grows.
+ * The phone layout itself (body.phone) and mouse-driven browsers are not
+ * affected.
+ */
+@media (pointer: coarse) {
+    body:not(.phone) .section-toolbar .btn,
+    body:not(.phone) .modal-toolbar .btn,
+    body:not(.phone) .modal-toolbox .btn,
+    body:not(.phone) .modal-footer .btn {
+        height: auto;
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    body:not(.phone) div.toolbox-length select {
+        height: 38px;
+    }
+
+    body:not(.phone) .pagination {
+        height: 38px;
+    }
+
+    body:not(.phone) .pagination a {
+        line-height: 36px;
+    }
+
+    body:not(.phone) ul.dropdown-menu > li > a,
+    body:not(.phone) #ConfigNav.nav-list a,
+    body:not(.phone) #ConfigNav.nav-list.long-list a {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    body:not(.phone) input,
+    body:not(.phone) select,
+    body:not(.phone) textarea,
+    body:not(.phone) .uneditable-input,
+    body:not(.phone) .navbar-search .search-query {
+        font-size: 16px;
+    }
+
+    /* Let drop-down boxes grow with the larger text, so it is not cut off. */
+    body:not(.phone) select {
+        height: auto;
+    }
+
+    /* Refresh and settings buttons in the top bar: extend the tap area to
+       the full height of the bar. */
+    body:not(.phone) #RefreshBlock .btn::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        right: 0;
+        bottom: -4px;
+        left: 0;
+    }
+
+    /* Sort links in table headers also take taps from the cell padding. */
+    body:not(.phone) table.datatable > thead > tr > th a {
+        position: relative;
+    }
+
+    body:not(.phone) table.datatable > thead > tr > th a::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        bottom: -5px;
+        left: -5px;
+    }
+
+    /* A link that is alone in a table cell, such as a download's name,
+       takes taps from the whole cell. */
+    body:not(.phone) table.datatable > tbody > tr > td > a:only-child {
+        display: block;
+        margin: -5px;
+        padding: 5px;
+    }
+
+    /* Priority, status and category cells open a menu when tapped. */
+    body:not(.phone) td.dropdown-cell > div {
+        display: block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* Checkmarks: the whole first cell of a row toggles it. The column is
+       widened to the size of the checkmarks in the phone layout. */
+    body:not(.phone) table.table-check > thead > tr > th:first-child,
+    body:not(.phone) table.table-check > tbody > tr > td:first-child {
+        position: relative;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    body:not(.phone) div.check::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* The carets next to the play button and in the search box open menus.
+       Extend their tap areas into the empty space around them, without
+       covering the play button or the search field. */
+    body:not(.phone) #PlayCaretButton,
+    body:not(.phone) .search-caret-button {
+        position: relative;
+    }
+
+    body:not(.phone) #PlayCaretButton::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -14px;
+        bottom: -12px;
+        left: 11px;
+    }
+
+    body:not(.phone) .search-caret-button::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        right: 0;
+        bottom: -4px;
+        left: -8px;
+    }
+}
+/* END: TOUCH SCREENS */
+
 #ConfigNav.nav-list a {
     text-transform: uppercase;
 }

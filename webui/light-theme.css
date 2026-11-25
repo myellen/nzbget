@@ -280,6 +280,13 @@ td:hover span.none-category {
 	color: #aaa;
 }
 
+/* no hover on touch screens: always show the empty category, so it can be found and tapped */
+@media (hover: none) {
+	td span.none-category {
+		color: #aaa;
+	}
+}
+
 .uneditable-mulitline-input {
 	display: inline-block;
 	width: 340px;
