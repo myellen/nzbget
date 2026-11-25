@@ -12,7 +12,7 @@ form fields use 16px text so iOS Safari stops zooming in on them. Mouse users
 and the existing phone layout are unchanged.
 
 - Fork: https://github.com/myellen/nzbget
-- Branch: `feature/touch-friendly-webui`
+- Branch: `feature/touch-friendly-webui` (PR: https://github.com/myellen/nzbget/pull/1)
 - The change touches only three static files in the web interface:
   `webui/style.css`, `webui/light-theme.css`, `webui/dark-theme.css`.
   There is nothing to compile.
